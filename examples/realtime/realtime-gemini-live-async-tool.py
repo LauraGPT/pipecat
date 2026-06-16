@@ -23,7 +23,6 @@ from loguru import logger
 
 from pipecat.adapters.schemas.direct_function import tool_options
 from pipecat.adapters.schemas.function_schema import FunctionSchema
-from pipecat.adapters.schemas.tools_schema import ToolsSchema
 from pipecat.frames.frames import LLMRunFrame
 from pipecat.pipeline.pipeline import Pipeline
 from pipecat.pipeline.worker import PipelineParams, PipelineWorker
@@ -83,7 +82,7 @@ weather_function = FunctionSchema(
     handler=fetch_weather_from_api,
 )
 
-tools = ToolsSchema(standard_tools=[weather_function])
+tools = [weather_function]
 
 
 system_instruction = (
